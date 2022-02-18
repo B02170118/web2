@@ -1,0 +1,24 @@
+
+.login-section{
+    background-color: #eee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    height: 100vh;
+    @media (min-width:768px){ 
+        --bs-bg-opacity: 1;
+        background-color: rgba(var(--bs-dark-rgb),var(--bs-bg-opacity))!important;    
+    }
+}
+.form-signin{
+    width: 100%;
+    max-width: 370px;
+    padding: 2.5rem;
+    margin: auto;
+    background-color: #eee;
+}
+.form-floating{
+    margin-bottom: 0.5rem;
+}

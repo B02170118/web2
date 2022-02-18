@@ -1,0 +1,33 @@
+stages:
+    # - test
+    - deploy
+
+# unit_test:
+#     image: edbizarro/gitlab-ci-pipeline-php:7.4
+#     stage: test
+#     script:
+#         - cp .env.example .env
+#         - composer install --no-scripts -n -o
+#         - php artisan key:generate
+#         - vendor/bin/phpunit
+#     only:
+#         - main
+
+deploy_production:
+    image: composer:2.1.9
+    stage: deploy
+    before_script:
+        - export COMPOSER_HOME=`pwd`/composer && mkdir -pv $COMPOSER_HOME
+        - composer global require --prefer-dist laravel/envoy=~1.0 --no-interaction --prefer-dist --quiet
+    script:
+        - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+        - eval $(ssh-agent -s)
+        - ssh-add <(echo "$SSH_PRIVATE_KEY" | base64 -d)
+        - mkdir -p ~/.ssh
+        - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+        - ${COMPOSER_HOME}/vendor/bin/envoy run deploy --commit="$CI_COMMIT_SHA"
+    environment:
+        name: production
+        url: https://xxx.com
+    only:
+        - main

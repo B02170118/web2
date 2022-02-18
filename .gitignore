@@ -1,0 +1,13 @@
+/node_modules
+/hot
+/storage/*.key
+/vendor/*
+/.env
+.vscode/
+/public/images/*
+/public/file/*
+/public/storage/*
+/storage/*
+_ide_helper.php
+rsync.sh
+/public/sync.ffs_db

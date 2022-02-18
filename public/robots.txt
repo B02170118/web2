@@ -1,0 +1,7 @@
+User-agent: *
+Disallow:/login
+Disallow:/loginform
+Disallow:/logout
+Disallow:/register
+Disallow:/user/
+Disallow:/captcha/

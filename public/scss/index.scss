@@ -1,0 +1,59 @@
+main{
+    margin-top: 56px;
+}
+
+.card{
+    .card-head{
+        background-color: #000;
+        min-height: 90px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .card-body{
+        .trade-id{
+            color: #888;
+            font-size: 0.75rem;
+            margin-bottom: 0.2rem;
+        }
+        .trade-type{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            p{
+                display: inherit;
+                margin-bottom: 0;
+                span{
+                    font-size: 0.9rem;
+                    padding: 0.1rem 0.4rem;
+                    margin-right: 0.2rem;
+                    border-radius: 5px;
+                    &:last-child{
+                        margin-right: 0;
+                    }
+                }
+                .season-type{padding: 0;}
+                .goods_type{
+                    background-color: #333;
+                    color: #fff;
+                }
+                .equipment-type{
+                    background-color: #333;
+                    color: yellow;
+                }
+            }
+        }
+        .trade-name{
+            font-size: 1.4rem;
+        }
+        ul{
+            list-style: none;
+            padding-left: 0;
+            li{
+                font-size: 0.9rem;
+                color: #333;
+            }
+        }
+    }
+}
